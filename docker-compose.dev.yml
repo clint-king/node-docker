@@ -1,0 +1,28 @@
+
+services:
+ 
+  nginx:
+    ports:
+      - "3000:80"
+  node-app-container:
+    build:
+      context: .
+      args:
+        NODE_ENV: development
+    volumes:
+      - ./:/app:ro
+      - /app/node_modules
+    environment:
+      - NODE_ENV=development
+      - MONGO_USER=firstroot
+      - MONGO_PASSWORD=mypassword
+      - SESSION_SECRET=secret
+
+    command: npm run dev
+  database:
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: firstroot
+      MONGO_INITDB_ROOT_PASSWORD: mypassword
+    
+
+      
