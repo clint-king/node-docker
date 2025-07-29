@@ -19,8 +19,15 @@ services:
       - MONGO_PASSWORD=${MONGO_PASSWORD}
       - SESSION_SECRET=${SESSION_SECRET}
     command: node index.js
+    networks:
+      - app-network
 
   database:
       environment:
       - MONGO_INITDB_ROOT_USERNAME=${MONGO_INITDB_ROOT_USERNAME}
       - MONGO_INITDB_ROOT_PASSWORD=${MONGO_INITDB_ROOT_PASSWORD}
+      networks:
+      - app-network
+
+networks:
+  app-network:
