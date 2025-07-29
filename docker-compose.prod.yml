@@ -3,6 +3,11 @@ services:
   nginx:
     ports:
       - "80:80"
+    depends_on:
+      - node-app-container
+    networks:
+      - app-network
+
   node-app-container:
     build:
       context: .
