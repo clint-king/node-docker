@@ -28,6 +28,7 @@ services:
   redis:
     image: redis
 
+
 volumes:
   mongo-db:
   

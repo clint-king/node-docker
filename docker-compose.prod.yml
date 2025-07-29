@@ -27,7 +27,10 @@ services:
       - MONGO_INITDB_ROOT_USERNAME=${MONGO_INITDB_ROOT_USERNAME}
       - MONGO_INITDB_ROOT_PASSWORD=${MONGO_INITDB_ROOT_PASSWORD}
       networks:
-      - app-network
+        - app-network
+  redis:
+      networks:
+        - app-network
 
 networks:
   app-network:
