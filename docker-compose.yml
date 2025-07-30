@@ -10,6 +10,7 @@ services:
 
   node-app-container:
     build: .
+    image: clietin/node-app
     environment:
       - MONGO_IP=database
       - MONGO_PORT=27017
